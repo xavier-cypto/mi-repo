@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StrikeBet — Professional Betting Platform</title>
+  <meta name="description" content="StrikeBet — Live odds, quick bets, and promotions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#" class="logo" aria-label="StrikeBet home">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0f1724"/><path d="M6 12h6l2-4" stroke="#00d084" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-text">StrikeBet</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#live">Live</a></li>
+          <li><a href="#sports">Sports</a></li>
+          <li><a href="#casino">Casino</a></li>
+          <li><a href="#promos">Promotions</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="login-btn">Log in</button>
+        <button class="btn btn-primary" id="signup-btn">Sign up</button>
+        <button class="burger" id="burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Live odds. Fast bets. Big wins.</h1>
+          <p class="lead">Real-time markets across football, basketball, tennis and more. Competitive odds, safe deposits, withdraw fast.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" id="hero-signup">Create account</a>
+            <a class="btn btn-ghost" href="#learn">How it works</a>
+          </div>
+          <ul class="trust">
+            <li><strong>24/7</strong> customer support</li>
+            <li><strong>Secure</strong> deposits & withdrawals</li>
+            <li><strong>Fast</strong> payouts</li>
+          </ul>
+        </div>
+        <div class="hero-right">
+          <div class="odds-card live-card" id="live">
+            <div class="card-header">
+              <span class="tag">Live</span>
+              <h3>Live Match — Manchester Utd vs Chelsea</h3>
+            </div>
+            <div class="card-body">
+              <div class="teams">
+                <div class="team">
+                  <div class="team-name">Man Utd</div>
+                  <div class="team-score">1</div>
+                </div>
+                <div class="vs">vs</div>
+                <div class="team">
+                  <div class="team-name">Chelsea</div>
+                  <div class="team-score">2</div>
+                </div>
+              </div>
+
+              <div class="markets">
+                <div class="market">
+                  <div class="market-title">Match Result</div>
+                  <div class="odds-list">
+                    <button class="odd">1<br><span>2.15</span></button>
+                    <button class="odd">X<br><span>3.40</span></button>
+                    <button class="odd">2<br><span>2.80</span></button>
+                  </div>
+                </div>
+                <div class="market">
+                  <div class="market-title">Total Goals</div>
+                  <div class="odds-list">
+                    <button class="odd">Over 2.5<br><span>1.75</span></button>
+                    <button class="odd">Under 2.5<br><span>2.05</span></button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-secondary" id="open-bet-slip">Open Bet Slip</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="market-grid container" id="sports">
+      <header class="section-header">
+        <h2>Popular Markets</h2>
+        <p>Quick access to live and upcoming matches</p>
+      </header>
+
+      <div class="grid">
+        <!-- Example card: replicate or render from API -->
+        <article class="market-card">
+          <div class="market-top">
+            <div><strong>LaLiga</strong> • Barcelona vs Real Madrid</div>
+            <div class="time">Tomorrow • 20:00</div>
+          </div>
+          <div class="market-odds">
+            <button class="odd small">1<br><span>1.95</span></button>
+            <button class="odd small">X<br><span>3.10</span></button>
+            <button class="odd small">2<br><span>4.20</span></button>
+          </div>
+        </article>
+
+        <article class="market-card">
+          <div class="market-top">
+            <div><strong>NBA</strong> • Lakers vs Celtics</div>
+            <div class="time">Live • Q3</div>
+          </div>
+          <div class="market-odds">
+            <button class="odd small">1<br><span>1.85</span></button>
+            <button class="odd small">2<br><span>2.05</span></button>
+            <button class="odd small">Spread<br><span>±3.5</span></button>
+          </div>
+        </article>
+
+        <article class="market-card">
+          <div class="market-top">
+            <div><strong>Tennis</strong> • Serena vs Osaka</div>
+            <div class="time">In 2h</div>
+          </div>
+          <div class="market-odds">
+            <button class="odd small">1<br><span>1.60</span></button>
+            <button class="odd small">2<br><span>2.40</span></button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="promo container" id="promos">
+      <div class="promo-inner">
+        <div>
+          <h3>Welcome Offer</h3>
+          <p>Bet $10 and get $30 in free bets. Terms apply.</p>
+        </div>
+        <div><a class="btn btn-primary" href="#signup">Get Offer</a></div>
+      </div>
+    </section>
+
+    <section class="features container" id="learn">
+      <header class="section-header">
+        <h2>How it works</h2>
+        <p>Place a bet in a few clicks — transparent, fast, and secure.</p>
+      </header>
+      <div class="features-grid">
+        <div class="feature">
+          <h4>Choose a market</h4>
+          <p>Pick sports and markets. Odds update in real time.</p>
+        </div>
+        <div class="feature">
+          <h4>Place your stake</h4>
+          <p>Add selections to your bet slip and enter stake.</p>
+        </div>
+        <div class="feature">
+          <h4>Withdraw winnings</h4>
+          <p>Fast payouts with multiple withdrawal options.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="left">
+        <small>© <span id="year"></span> StrikeBet. All rights reserved.</small>
+      </div>
+      <div class="right">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Responsible gambling</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bet slip modal -->
+  <div class="modal" id="bet-slip" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="bet-slip-title">
+      <button class="modal-close" id="close-bet-slip" aria-label="Close bet slip">&times;</button>
+      <h3 id="bet-slip-title">Bet Slip</h3>
+      <div id="bets-list" class="bets-list">
+        <p class="empty">No selections yet. Click an odd to add a selection.</p>
+      </div>
+      <div class="bet-controls">
+        <label>Stake</label>
+        <input type="number" id="stake" min="1" value="10" />
+        <div class="bet-summary">
+          <div>Potential return: <strong id="potential">0.00</strong></div>
+        </div>
+        <button class="btn btn-primary" id="place-bet">Place Bet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup / Login modal -->
+  <div class="modal" id="auth-modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <button class="modal-close" id="close-auth" aria-label="Close">&times;</button>
+      <h3 id="auth-title">Create account</h3>
+      <form id="signup-form" class="auth-form" novalidate>
+        <label>Email <input type="email" id="email" required /></label>
+        <label>Password <input type="password" id="password" required minlength="6" /></label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Create account</button>
+          <button type="button" class="btn btn-ghost" id="switch-login">I already have an account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
