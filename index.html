@@ -3,24 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>StrikeBet — Professional Betting Platform</title>
-  <meta name="description" content="StrikeBet — Live odds, quick bets, and promotions." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>StrikeBet — Live odds, quick bets & secure payouts</title>
+  <meta name="description" content="StrikeBet — Live odds, quick bets, and promotions across football, basketball, tennis and more. Fast payouts and 24/7 support." />
+  <meta name="theme-color" content="#0f1724" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="StrikeBet — Live odds, quick bets & secure payouts" />
+  <meta property="og:description" content="Real-time markets across football, basketball, tennis and more. Competitive odds, safe deposits, withdraw fast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@StrikeBet" />
+
+  <!-- Fonts: preconnect + preload for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" onload="this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Non-blocking stylesheet load -->
+  <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    /* Minimal inlined critical styles for layout stability (optional) */
+    :root { --brand:#00d084; --bg:#fff; --text:#0f1724; }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    .container{max-width:1100px;margin:0 auto;padding:1rem;}
+    a{color:inherit}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <a href="#" class="logo" aria-label="StrikeBet home">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0f1724"/><path d="M6 12h6l2-4" stroke="#00d084" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="brand-text">StrikeBet</span>
+  <a class="skip-link visually-hidden" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <div class="brand" style="display:flex;align-items:center;gap:.5rem">
+        <a href="/" class="logo" aria-label="StrikeBet home" style="display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect width="24" height="24" rx="6" fill="#0f1724"/>
+            <path d="M6 12h6l2-4" stroke="#00d084" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text" style="font-weight:700;">StrikeBet</span>
         </a>
       </div>
 
-      <nav class="main-nav" id="main-nav" aria-label="Primary">
-        <ul>
+      <nav class="main-nav" id="main-nav" aria-label="Primary" style="flex:1">
+        <ul style="list-style:none;display:flex;gap:1rem;align-items:center;margin:0;padding:0;">
           <li><a href="#live">Live</a></li>
           <li><a href="#sports">Sports</a></li>
           <li><a href="#casino">Casino</a></li>
@@ -28,139 +64,145 @@
         </ul>
       </nav>
 
-      <div class="actions">
-        <button class="btn btn-ghost" id="login-btn">Log in</button>
-        <button class="btn btn-primary" id="signup-btn">Sign up</button>
-        <button class="burger" id="burger" aria-label="Open menu">
-          <span></span><span></span><span></span>
+      <div class="actions" style="display:flex;align-items:center;gap:.5rem">
+        <button type="button" class="btn btn-ghost" id="login-btn" data-open="auth-modal">Log in</button>
+        <button type="button" class="btn btn-primary" id="signup-btn" data-open="auth-modal">Sign up</button>
+        <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" style="background:transparent;border:0;padding:.5rem;">
+          <span style="display:block;width:18px;height:2px;background:#111;margin:3px 0;"></span>
+          <span style="display:block;width:18px;height:2px;background:#111;margin:3px 0;"></span>
+          <span style="display:block;width:18px;height:2px;background:#111;margin:3px 0;"></span>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <h1>Live odds. Fast bets. Big wins.</h1>
+  <main id="main" role="main">
+    <section class="hero" aria-labelledby="hero-title" style="padding:2rem 0;">
+      <div class="container hero-inner" style="display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+        <div class="hero-left" style="flex:1;min-width:280px;">
+          <h1 id="hero-title">Live odds. Fast bets. Big wins.</h1>
           <p class="lead">Real-time markets across football, basketball, tennis and more. Competitive odds, safe deposits, withdraw fast.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" id="hero-signup">Create account</a>
+          <div class="hero-cta" style="display:flex;gap:.5rem;margin:.75rem 0;">
+            <a class="btn btn-primary" id="hero-signup" href="#signup" role="button">Create account</a>
             <a class="btn btn-ghost" href="#learn">How it works</a>
           </div>
-          <ul class="trust">
+          <ul class="trust" style="display:flex;gap:1rem;padding:0;margin:0;list-style:none;">
             <li><strong>24/7</strong> customer support</li>
             <li><strong>Secure</strong> deposits & withdrawals</li>
             <li><strong>Fast</strong> payouts</li>
           </ul>
         </div>
-        <div class="hero-right">
-          <div class="odds-card live-card" id="live">
+
+        <aside class="hero-right" aria-labelledby="live-title" style="width:360px;min-width:240px;">
+          <div class="odds-card live-card" id="live" role="region" aria-label="Live match odds" aria-describedby="live-desc" style="border:1px solid #e6e6e6;border-radius:8px;padding:1rem;background:#fff">
             <div class="card-header">
-              <span class="tag">Live</span>
-              <h3>Live Match — Manchester Utd vs Chelsea</h3>
+              <span class="tag" style="background:var(--brand);color:#fff;padding:.25rem .5rem;border-radius:4px;font-size:.75rem">Live</span>
+              <h3 id="live-title">Manchester Utd vs Chelsea</h3>
             </div>
-            <div class="card-body">
-              <div class="teams">
-                <div class="team">
+
+            <div class="card-body" id="live-desc">
+              <div class="teams" style="display:flex;align-items:center;justify-content:space-between;">
+                <div class="team" style="text-align:center;">
                   <div class="team-name">Man Utd</div>
                   <div class="team-score">1</div>
                 </div>
-                <div class="vs">vs</div>
-                <div class="team">
+
+                <div class="vs" style="align-self:center;font-weight:600;color:#666">vs</div>
+
+                <div class="team" style="text-align:center;">
                   <div class="team-name">Chelsea</div>
                   <div class="team-score">2</div>
                 </div>
               </div>
 
-              <div class="markets">
-                <div class="market">
+              <div class="markets" style="margin-top:1rem;">
+                <div class="market" aria-label="Match result market">
                   <div class="market-title">Match Result</div>
-                  <div class="odds-list">
-                    <button class="odd">1<br><span>2.15</span></button>
-                    <button class="odd">X<br><span>3.40</span></button>
-                    <button class="odd">2<br><span>2.80</span></button>
+                  <div class="odds-list" style="display:flex;gap:.5rem;margin-top:.5rem;">
+                    <button type="button" class="odd">1<br><span>2.15</span></button>
+                    <button type="button" class="odd">X<br><span>3.40</span></button>
+                    <button type="button" class="odd">2<br><span>2.80</span></button>
                   </div>
                 </div>
-                <div class="market">
+
+                <div class="market" aria-label="Total goals market" style="margin-top:.75rem;">
                   <div class="market-title">Total Goals</div>
-                  <div class="odds-list">
-                    <button class="odd">Over 2.5<br><span>1.75</span></button>
-                    <button class="odd">Under 2.5<br><span>2.05</span></button>
+                  <div class="odds-list" style="display:flex;gap:.5rem;margin-top:.5rem;">
+                    <button type="button" class="odd">Over 2.5<br><span>1.75</span></button>
+                    <button type="button" class="odd">Under 2.5<br><span>2.05</span></button>
                   </div>
                 </div>
               </div>
-              <div class="card-footer">
-                <button class="btn btn-secondary" id="open-bet-slip">Open Bet Slip</button>
+
+              <div class="card-footer" style="margin-top:1rem;">
+                <button type="button" class="btn btn-secondary" id="open-bet-slip" data-open="bet-slip">Open Bet Slip</button>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section class="market-grid container" id="sports">
+    <section class="market-grid container" id="sports" aria-labelledby="popular-markets">
       <header class="section-header">
-        <h2>Popular Markets</h2>
+        <h2 id="popular-markets">Popular Markets</h2>
         <p>Quick access to live and upcoming matches</p>
       </header>
 
-      <div class="grid">
-        <!-- Example card: replicate or render from API -->
-        <article class="market-card">
-          <div class="market-top">
-            <div><strong>LaLiga</strong> • Barcelona vs Real Madrid</div>
+      <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
+        <article class="market-card" aria-labelledby="card1-title" style="border:1px solid #eee;padding:.75rem;border-radius:8px;">
+          <div class="market-top" style="display:flex;justify-content:space-between;align-items:center;">
+            <div id="card1-title"><strong>LaLiga</strong> • Barcelona vs Real Madrid</div>
             <div class="time">Tomorrow • 20:00</div>
           </div>
-          <div class="market-odds">
-            <button class="odd small">1<br><span>1.95</span></button>
-            <button class="odd small">X<br><span>3.10</span></button>
-            <button class="odd small">2<br><span>4.20</span></button>
+          <div class="market-odds" style="display:flex;gap:.5rem;margin-top:.5rem;">
+            <button type="button" class="odd small">1<br><span>1.95</span></button>
+            <button type="button" class="odd small">X<br><span>3.10</span></button>
+            <button type="button" class="odd small">2<br><span>4.20</span></button>
           </div>
         </article>
 
-        <article class="market-card">
-          <div class="market-top">
-            <div><strong>NBA</strong> • Lakers vs Celtics</div>
+        <article class="market-card" aria-labelledby="card2-title" style="border:1px solid #eee;padding:.75rem;border-radius:8px;">
+          <div class="market-top" style="display:flex;justify-content:space-between;align-items:center;">
+            <div id="card2-title"><strong>NBA</strong> • Lakers vs Celtics</div>
             <div class="time">Live • Q3</div>
           </div>
-          <div class="market-odds">
-            <button class="odd small">1<br><span>1.85</span></button>
-            <button class="odd small">2<br><span>2.05</span></button>
-            <button class="odd small">Spread<br><span>±3.5</span></button>
+          <div class="market-odds" style="display:flex;gap:.5rem;margin-top:.5rem;">
+            <button type="button" class="odd small">1<br><span>1.85</span></button>
+            <button type="button" class="odd small">2<br><span>2.05</span></button>
+            <button type="button" class="odd small">Spread<br><span>±3.5</span></button>
           </div>
         </article>
 
-        <article class="market-card">
-          <div class="market-top">
-            <div><strong>Tennis</strong> • Serena vs Osaka</div>
+        <article class="market-card" aria-labelledby="card3-title" style="border:1px solid #eee;padding:.75rem;border-radius:8px;">
+          <div class="market-top" style="display:flex;justify-content:space-between;align-items:center;">
+            <div id="card3-title"><strong>Tennis</strong> • Serena vs Osaka</div>
             <div class="time">In 2h</div>
           </div>
-          <div class="market-odds">
-            <button class="odd small">1<br><span>1.60</span></button>
-            <button class="odd small">2<br><span>2.40</span></button>
+          <div class="market-odds" style="display:flex;gap:.5rem;margin-top:.5rem;">
+            <button type="button" class="odd small">1<br><span>1.60</span></button>
+            <button type="button" class="odd small">2<br><span>2.40</span></button>
           </div>
         </article>
-
       </div>
     </section>
 
-    <section class="promo container" id="promos">
-      <div class="promo-inner">
+    <section class="promo container" id="promos" aria-labelledby="promo-title" style="margin-top:2rem;">
+      <div class="promo-inner" style="display:flex;justify-content:space-between;align-items:center;padding:1rem;border-radius:8px;background:#f9fafb;">
         <div>
-          <h3>Welcome Offer</h3>
+          <h3 id="promo-title">Welcome Offer</h3>
           <p>Bet $10 and get $30 in free bets. Terms apply.</p>
         </div>
-        <div><a class="btn btn-primary" href="#signup">Get Offer</a></div>
+        <div><a class="btn btn-primary" href="#signup" rel="nofollow">Get Offer</a></div>
       </div>
     </section>
 
-    <section class="features container" id="learn">
+    <section class="features container" id="learn" aria-labelledby="how-it-works" style="margin-top:2rem;">
       <header class="section-header">
-        <h2>How it works</h2>
+        <h2 id="how-it-works">How it works</h2>
         <p>Place a bet in a few clicks — transparent, fast, and secure.</p>
       </header>
-      <div class="features-grid">
+      <div class="features-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem;">
         <div class="feature">
           <h4>Choose a market</h4>
           <p>Pick sports and markets. Odds update in real time.</p>
@@ -177,47 +219,56 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
+  <footer class="site-footer" role="contentinfo" style="border-top:1px solid #eee;margin-top:2rem;padding:1rem 0;">
+    <div class="container footer-inner" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;">
       <div class="left">
         <small>© <span id="year"></span> StrikeBet. All rights reserved.</small>
       </div>
-      <div class="right">
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Responsible ambling</a>
+      <div class="right" style="display:flex;gap:.75rem;">
+        <a href="/terms" rel="noopener">Terms</a>
+        <a href="/privacy" rel="noopener">Privacy</a>
+        <a href="/responsible-gambling" rel="noopener">Responsible gambling</a>
       </div>
     </div>
   </footer>
 
-  <!-- Bet slip modal -->
-  <div class="modal" id="bet-slip" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="bet-slip-title">
-      <button class="modal-close" id="close-bet-slip" aria-label="Close bet slip">&times;</button>
+  <!-- Bet slip modal (enhanced accessibility) -->
+  <div class="modal" id="bet-slip" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bet-slip-title" style="display:none;">
+    <div class="modal-panel" role="document" style="max-width:480px;margin:2rem auto;background:#fff;padding:1rem;border-radius:8px;">
+      <button type="button" class="modal-close" id="close-bet-slip" aria-label="Close bet slip" style="float:right;background:none;border:0;font-size:1.25rem">&times;</button>
       <h3 id="bet-slip-title">Bet Slip</h3>
-      <div id="bets-list" class="bets-list">
+      <div id="bets-list" class="bets-list" aria-live="polite">
         <p class="empty">No selections yet. Click an odd to add a selection.</p>
       </div>
-      <div class="bet-controls">
-        <label>Stake</label>
+
+      <div class="bet-controls" style="margin-top:1rem;">
+        <label for="stake">Stake</label>
         <input type="number" id="stake" min="1" value="10" />
-        <div class="bet-summary">
+        <div class="bet-summary" style="margin-top:.5rem;">
           <div>Potential return: <strong id="potential">0.00</strong></div>
         </div>
-        <button class="btn btn-primary" id="place-bet">Place Bet</button>
+        <button type="button" class="btn btn-primary" id="place-bet" style="margin-top:.5rem;">Place Bet</button>
       </div>
     </div>
   </div>
 
   <!-- Signup / Login modal -->
-  <div class="modal" id="auth-modal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="auth-title">
-      <button class="modal-close" id="close-auth" aria-label="Close">&times;</button>
+  <div class="modal" id="auth-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="auth-title" style="display:none;">
+    <div class="modal-panel" role="document" style="max-width:420px;margin:2rem auto;background:#fff;padding:1rem;border-radius:8px;">
+      <button type="button" class="modal-close" id="close-auth" aria-label="Close" style="float:right;background:none;border:0;font-size:1.25rem">&times;</button>
       <h3 id="auth-title">Create account</h3>
-      <form id="signup-form" class="auth-form" novalidate>
-        <label>Email <input type="email" id="email" required /></label>
-        <label>Password <input type="password" id="password" required minlength="6" /></label>
-        <div class="form-actions">
+      <form id="signup-form" class="auth-form" novalidate aria-describedby="auth-help">
+        <div id="auth-help" class="visually-hidden">Create an account to start placing bets. Password must be at least 6 characters.</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <label for="email">Email
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </label>
+          <label for="password">Password
+            <input type="password" id="password" name="password" required minlength="6" autocomplete="new-password" />
+          </label>
+        </div>
+
+        <div class="form-actions" style="display:flex;gap:.5rem;margin-top:.75rem;">
           <button type="submit" class="btn btn-primary">Create account</button>
           <button type="button" class="btn btn-ghost" id="switch-login">I already have an account</button>
         </div>
@@ -225,6 +276,87 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <noscript>
+    <div style="background:#fffbeb;border:1px solid #fef3c7;padding:.75rem;text-align:center;">
+      This site works best with JavaScript enabled.
+    </div>
+  </noscript>
+
+  <!-- App script: deferred for non-blocking load. Keep only essential interactions here. -->
+  <script>
+    // Minimal, dependency-free interactions: menu toggle, open/close modals, set year.
+    (function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const burger = document.getElementById('burger');
+      const mainNav = document.getElementById('main-nav');
+      if (burger && mainNav) {
+        burger.addEventListener('click', () => {
+          const expanded = burger.getAttribute('aria-expanded') === 'true';
+          burger.setAttribute('aria-expanded', String(!expanded));
+          mainNav.style.display = expanded ? '' : 'block';
+        });
+      }
+
+      // Modal open/close using data-open attributes
+      const openButtons = document.querySelectorAll('[data-open]');
+      openButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const targetId = btn.getAttribute('data-open');
+          const modal = document.getElementById(targetId);
+          if (modal) {
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
+            // focus first focusable element
+            const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusable) focusable.focus();
+          }
+        });
+      });
+
+      const closeButtons = document.querySelectorAll('.modal-close');
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const modal = btn.closest('.modal');
+          if (modal) {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+
+      // Close modals with Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal[aria-hidden="false"]').forEach(modal => {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+          });
+        }
+      });
+
+      // Simple odd selection -> add sample entry to bet slip (demo)
+      document.querySelectorAll('.odd').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const betList = document.getElementById('bets-list');
+          if (!betList) return;
+          const empty = betList.querySelector('.empty');
+          if (empty) empty.remove();
+          const li = document.createElement('div');
+          li.textContent = btn.textContent.trim();
+          li.style.padding = '.25rem 0';
+          betList.appendChild(li);
+          // Show bet slip
+          const slip = document.getElementById('bet-slip');
+          if (slip) { slip.style.display = 'block'; slip.setAttribute('aria-hidden','false'); }
+        });
+      });
+    }());
+  </script>
+
+  <!-- External script (app logic) should be loaded with defer if present -->
+  <script src="script.js" defer></script>
 </body>
 </html>
